@@ -2,8 +2,8 @@
 //  CCSpriteWithHue.cpp
 //  HelloWorld
 //
-//  Created by Jacky on 15/5/8.
-//
+//  Copyright (c) 2013 Alexey Naumov. All rights reserved.
+//  Ported by Jacky on 15/5/8.
 //
 
 #include "CCSpriteWithHue.h"
