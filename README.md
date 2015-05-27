@@ -18,7 +18,7 @@
 
 ![SpriteWithHue](Images/SpriteWithHue.png)
 
-![SpriteWithHueAnimation](Images/SpriteWithHueAnimation.png)
+![SpriteWithHueAnimation](Images/SpriteWithHueAnimation.gif)
 
 使用方式很简单，和cocos2d::Sprite一样，只是多了一个
 setHue(float hue)接口用于设置色调，范围处于0~2π。
