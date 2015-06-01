@@ -153,17 +153,17 @@ void SpriteWithHue::updateColor()
     updateAlpha();
 }
 
+void SpriteWithHue::hueUniformCallback(cocos2d::GLProgram *p, cocos2d::Uniform *u)
+{
+   glUniformMatrix3fv(u->location, 1, GL_FALSE, (GLfloat*)&_mat);
+}
+
 void SpriteWithHue::updateColorMatrix()
 {
-    GLfloat mat[3][3];
-    hueMatrix(mat, _hue);
-    premultiplyAlpha(mat, getAlpha());
+    hueMatrix(_mat, _hue);
+    premultiplyAlpha(_mat, getAlpha());
 
-    auto callback = [this, mat](cocos2d::GLProgram *p, cocos2d::Uniform *u)
-    {
-      glUniformMatrix3fv(u->location, 1, GL_FALSE, (GLfloat*)&mat);
-    };
-    getGLProgramState()->setUniformCallback("u_hue", callback);
+    getGLProgramState()->setUniformCallback("u_hue", CC_CALLBACK_2(SpriteWithHue::hueUniformCallback, this));
 }
 
 void SpriteWithHue::updateAlpha()

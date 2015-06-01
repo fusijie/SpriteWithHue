@@ -29,6 +29,7 @@ public:
     
 protected:
     float _hue;
+    GLfloat _mat[3][3];
     
     bool initWithTexture(cocos2d::Texture2D *texture);
     bool initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect);
@@ -42,6 +43,8 @@ protected:
     void updateColorMatrix();
     void updateAlpha();
     GLfloat getAlpha();
+    
+    void hueUniformCallback(cocos2d::GLProgram *p, cocos2d::Uniform *u);
 };
 
 #endif /* defined(__HelloWorld__CCSpriteWithHue__) */
