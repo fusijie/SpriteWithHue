@@ -133,8 +133,6 @@ void SpriteWithHue::setupDefaultSettings()
 void SpriteWithHue::initShader()
 {
     auto glProgram = cocos2d::GLProgram::createWithByteArrays(cocos2d::ccPositionTextureColor_noMVP_vert, shaderBody());
-    glProgram->bindAttribLocation(cocos2d::GLProgram::ATTRIBUTE_NAME_POSITION, cocos2d::GLProgram::VERTEX_ATTRIB_POSITION);
-    glProgram->bindAttribLocation(cocos2d::GLProgram::ATTRIBUTE_NAME_TEX_COORD, cocos2d::GLProgram::VERTEX_ATTRIB_TEX_COORD);
     setGLProgram(glProgram);
     updateColor();
 }
