@@ -132,8 +132,14 @@ void SpriteWithHue::setupDefaultSettings()
 
 void SpriteWithHue::initShader()
 {
-    auto glProgram = cocos2d::GLProgram::createWithByteArrays(cocos2d::ccPositionTextureColor_noMVP_vert, shaderBody());
-    setGLProgram(glProgram);
+    auto glprogram = cocos2d::GLProgramCache::getInstance()->getGLProgram("hue_program");
+    if(!glprogram)
+    {
+       glprogram = cocos2d::GLProgram::createWithByteArrays(cocos2d::ccPositionTextureColor_noMVP_vert, shaderBody());
+       cocos2d::GLProgramCache::getInstance()->addGLProgram(glprogram, "hue_program");
+    }
+    auto glprogramstate = cocos2d::GLProgramState::create(glprogram);
+    setGLProgramState(glprogramstate);
     updateColor();
 }
 
